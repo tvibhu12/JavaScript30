@@ -1,7 +1,22 @@
   /*
       misc styles, nothing to do with CSS variables
     */
-
+:root
+{
+  --base:yellow;
+  --spacing:10px;
+  --blur:10px;
+}
+img
+{
+  background: var(--base);
+  padding: var(--spacing);
+  filter: blur(var(--blur));
+}
+.hl
+{
+  color: var(--base);
+}
     body {
         text-align: center;
         background: #193549;
