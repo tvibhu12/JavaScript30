@@ -4,9 +4,7 @@ var modal=
     //calculate Second and degree
    setTime:function(){
       const now = new Date();
-      console.log(now.getSeconds());
-      console.log(now.getMinutes());
-      console.log(now.getHours());
+     
       //get second
       const seconds= now.getSeconds();
       const secondsDegrees = ((seconds/60)*360)+90;
