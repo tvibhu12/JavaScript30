@@ -12,3 +12,14 @@ function find(wordToFind,cities)
         return place.city.match(regEx) || place.state.match(regEx);
     });
 }
+//get value from search box
+const serachInput=document.querySelector('.search');
+//store suggetion DOM
+const suggestion=document.querySelector('.suggestion');
+//getting value from search Box
+serachInput.addEventListener("change",function(){
+   console.log(this.value)
+});
+serachInput.addEventListener("keyup",function(){
+    console.log(this.value)
+ })
