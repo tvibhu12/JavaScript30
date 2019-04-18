@@ -12,14 +12,28 @@ function find(wordToFind,cities)
         return place.city.match(regEx) || place.state.match(regEx);
     });
 }
+//function to diplay matched city or state 
+function display() {
+    const mathchArray=find(this.value,cities);
+    const html=mathchArray.map(place=>{
+        //highlight search word in suggestion
+        const regEx=new RegExp(this.value,'gi');
+        const cityName=place.city.replace(regEx,`<span class="hl">${this.value}</span>`);
+        // add matched city or state in suggestion section.
+        return `
+        <li>
+        <span class='name'>${cityName},${place.state}</span>
+        <span class='population'>${place.population}</span>
+        </li>`;
+
+
+    }).join('');
+    suggestion.innerHTML=html;
+ };
 //get value from search box
 const serachInput=document.querySelector('.search');
 //store suggetion DOM
-const suggestion=document.querySelector('.suggestion');
+const suggestion=document.querySelector('.suggestions');
 //getting value from search Box
-serachInput.addEventListener("change",function(){
-   console.log(this.value)
-});
-serachInput.addEventListener("keyup",function(){
-    console.log(this.value)
- })
+serachInput.addEventListener("change",display);
+serachInput.addEventListener("keyup",display);
